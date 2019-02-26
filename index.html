@@ -3,9 +3,89 @@
 <head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+
+	<style type="text/css">
+		body {
+			font-family: 'Josefin Sans', sans-serif;
+			background: tomato;
+		}
+
+		.countdownContainer {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translateX(-50%) translateY(-50%);
+			text-align: center;	
+			border: 1px solid black;
+			padding: 20px;
+		}
+
+		.info {
+			font-size: 50px;
+		}
+	</style>
+
 	<title>Timer</title>
 </head>
 <body class="container">
-	<h1 class="display-4">Hello github</h1>
+	<table class="countdownContainer" rules="rows">
+		<tr>
+			<td colSpan="4" class="info">Till 1/3/19 12:00 AM</td>
+		</tr>			
+		<tr>
+			<td colSpan="4" class="info">Countdown Timer</td>
+		</tr>
+		<tr>
+			<th>Days</th>
+			<th>Hours</th>
+			<th>Minutes</th>
+			<th>Seconds</th>
+		</tr>
+		<tr class="info">
+			<td id="days">9</td>
+			<td id="hours">9</td>
+			<td id="minutes">9</td>
+			<td id="seconds">9</td>
+		</tr>
+	</table>
+
+	<script type="text/javascript">
+		function countdown() {
+			var now = new Date();
+			var scheduleDate = new Date(2019, 2, 1);
+
+			console.log(now);
+			console.log(scheduleDate);
+
+			var currentTime = now.getTime();
+			var scheduledTime = scheduleDate.getTime();
+			var remainingTime = scheduledTime - currentTime;
+
+			var seconds = Math.floor(remainingTime / 1000);
+			var minutes = Math.floor(seconds / 60);
+			var hours = Math.floor(minutes / 60);
+			var days = Math.floor(hours / 24);
+
+			seconds %= 60;
+			minutes %= 60;
+			hours %= 24;
+
+			seconds = (seconds < 10) ? ("0" + seconds) : seconds;
+			minutes = (minutes < 10) ? ("0" + minutes) : minutes;
+			hours = (hours < 10) ? ("0" + hours) : hours;
+
+			document.getElementById("days").textContent = days;
+			document.getElementById("hours").textContent = hours;
+			document.getElementById("minutes").textContent = minutes;
+			document.getElementById("seconds").textContent = seconds;
+
+			setTimeout(countdown, 1000);
+		}
+
+		countdown();
+	</script>
 </body>
 </html>
