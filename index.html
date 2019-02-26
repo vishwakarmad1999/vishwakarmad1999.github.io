@@ -24,7 +24,7 @@
 		}
 
 		.info {
-			font-size: 50px;
+			font-size: 2.5em;
 		}
 	</style>
 
@@ -33,7 +33,7 @@
 <body class="container">
 	<table class="countdownContainer" rules="rows">
 		<tr>
-			<td colSpan="4" class="info">Till 1/3/19 12:00 AM</td>
+			<td colSpan="4" class="info">Till 28/2/19 23:59 AM</td>
 		</tr>			
 		<tr>
 			<td colSpan="4" class="info">Countdown Timer</td>
@@ -56,9 +56,6 @@
 		function countdown() {
 			var now = new Date();
 			var scheduleDate = new Date(2019, 2, 1);
-
-			console.log(now);
-			console.log(scheduleDate);
 
 			var currentTime = now.getTime();
 			var scheduledTime = scheduleDate.getTime();
