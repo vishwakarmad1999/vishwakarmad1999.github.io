@@ -27,14 +27,41 @@
 		.info {
 			font-size: 2.5em;
 		}
+
+		input[type=number] {
+			width: 100%;
+			padding: 8px;
+			text-align: center;
+			border: 1px solid white;
+			background: tomato;
+			color: white;
+		}
 	</style>
+
+	<script type="text/javascript">
+		function validateform() {
+			var x = document.forms["validateForm"]["age"].value;
+			if (x == "2120") {
+				alert("Go to this link vishwakarmad1999.github.io/bday.html")
+				return True;
+			}
+			alert("Please enter a different number")
+			return false;
+		}
+	</script>
 
 	<title>Surprise</title>
 </head>
 <body class="container">
 	<div class="countdownContainer">
 		<h1>Happy Birthday Pilli</h1>
-		<a href="/bday.html" class="btn btn-outline-light btn-block">Surprise</a>
+		<!-- <a href="/bday.html" class="btn btn-outline-light btn-block">Surprise</a><br> -->
+		<hr>
+		<form onsubmit="return validateform()" name="validateForm">
+			<h4 class="text-light">Enter a number which keeps you together</h4>
+			<input type="number" name="age"><br><br>
+			<input type="submit" value="Submit" class="btn btn-outline-light btn-block">
+		</form>
 	</div>
 	<!-- <table class="countdownContainer" rules="rows">
 		<tr>
